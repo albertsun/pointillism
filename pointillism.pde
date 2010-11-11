@@ -1,12 +1,22 @@
+/*
+Based off of http://processing.org/learning/basics/pointillism.html originally by Daniel Shiffman
+Some code borrowed from https://github.com/leebyron/streamgraph_generator/
+
+Press Enter to save image
+Press 1-9 to add more points of varying size.
+Play with the following three variables.
+
+*/
+String imagepath = "kayaking.jpg";
+int points = 100;
+int pointsize = 100; //0 to 100
+
+
 PImage img;
 
 int smallPoint = 2;
 int largePoint;
 int top, left;
-
-int points = 100;
-int pointsize = 100; //0 to 100
-String imagepath = "kayaking.jpg";
 
 void setup() {
   noLoop();
@@ -27,6 +37,7 @@ void draw() {
 
 void splat() {
    for (int i=0; i<points; i++) {
+    pointsize = (int)random(10)*(int)random(10); //randomize point size.
     float pointillize = map(pointsize, 0, 100, smallPoint, largePoint);
     int x = int(random(img.width));
     int y = int(random(img.height));
